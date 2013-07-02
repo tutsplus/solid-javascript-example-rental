@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'/>
+    <title>SOLID design principles</title>
+    <link type='text/css' rel="stylesheet" href='/css/main.css'/>
+    <script type='text/javascript' src="/js/jquery.js"></script>
+    <script type='text/javascript' src="/js/mustache.js"></script>
+    <script type='text/javascript' src="/js/fares.js"></script>
+  </head>
+  <body>
+    <div id="bucket">
+
+      <div id="main">
+        <h1>Describe your rental plan</h1>
+        <form action="#" method="post" >
+
+          <fieldset id="imports">
+            <ol>
+              <li class="import">
+                <p>
+                  <label for="fare-from-amount">How many days?</label>
+                  <input type="text" name="fare-from-amount" disabled="disabled" value="1" id="fare-from-amount" size='2' class="import-start" />
+                  &rarr;
+                  <input type="text" name="fare-to-amount" value="--" id="fare-to-amount" size='2' class="import-end"/>
+                  <label for="fare-value">Value</label>
+                  <input type="text" name="fare-value" value="" id="fare-value" size='3' />
+                  &euro;
+
+                  /
+
+                  <select>
+                    <option>fijo</option>
+                    <option>dia</option>
+                  </select>
+
+                  <a href="#" class="button inline remove">&#x2718;</a>
+
+                </p>
+
+                <p class="settings-24">
+                  <label for="">Unit</label>
+                  <label>
+                    <input type='radio' name='imports[0].children_type' value='HOURS' checked="checked"/>
+                    Hours
+                  </label>
+                  <label>
+                    <input type='radio' name='imports[0].children_type' value='MINUTES'/>
+                    Minutes
+                  </label>
+                </p>
+
+                <ol>
+                  <li class="import-24 indented-checkbox">
+                    <input type='text' name='imports[0].children[0].start' size='2' value="1" class="import-start"/>
+                    &rarr; 
+                    <input type='text' name='imports[0].children[0].end' size='2' value="24" class="import-end"/> 
+                    =
+                    <input type='text' name='imports[0].children[0].amount' size='2'/> &euro;
+                  </li>
+                </ol>
+              </li>
+            </ol>
+
+
+          </fieldset>
+
+          <p>
+            <button>Create rental plan</button>
+          </p>
+        </form>
+
+      </div>
+    </div>
+  </body>
+</html>
+
