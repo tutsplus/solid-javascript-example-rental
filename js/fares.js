@@ -1,30 +1,9 @@
 $(function() {
 
-  var change_farekind = function(input) {
-    var kind = $(input).val();
-    var dependencies = $("[data-farekind]");
-    dependencies.hide();
-
-    dependencies.filter(function() {
-      var kinds = $(this).data("farekind").toString().split(',');
-      return $.inArray(kind,kinds) !== -1;
-    }).show();
-  };
-
-  $("#fare-kind").change(function() {
-    change_farekind(this);
-  });
-
-  change_farekind($("#fare-kind"));
-
   $("#add-extra-pricing").click(function(e) {
     e.preventDefault();
     $(this).parents("p").before(create_new_row());
     $("#imports .import-start:last").focus();
-  });
-
-  $("form").submit(function() {
-    $("select").prop("disabled",false);
   });
 
   var initSelects = function() {
