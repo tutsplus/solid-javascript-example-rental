@@ -123,10 +123,13 @@ $(function() {
 
   $("#imports .remove").live("click",function(e) {
     e.preventDefault();
-    if ($("#imports > ol > li").length > 1)
-      remove_import(this);
-    else
-      reset_imports();
+    if ($(this).parents("li:first").hasClass("import-24")) {
+      remove_import(this); 
+    } else {
+      if ($("#imports > ol > li").length > 1) { remove_import(this); }
+      else { reset_imports(); }
+    }
+
   });
 
 });
