@@ -123,7 +123,7 @@ $(function() {
 
   $("#imports .remove").live("click",function(e) {
     e.preventDefault();
-    if ($("#imports li").length > 1)
+    if ($("#imports > ol > li").length > 1)
       remove_import(this);
     else
       reset_imports();
