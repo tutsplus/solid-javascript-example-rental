@@ -91,7 +91,7 @@ $(function() {
     var row = $(button).parents("li").first().remove();
   }
   , reset_imports = function() {
-    $("#imports li:first").find(".import-start").prop("disabled",true).val(1)
+    $("#imports > ol > li:first > p").find(".import-start").prop("disabled",true).val(1)
       .end()
       .find(".import-end").val("--");
   }
