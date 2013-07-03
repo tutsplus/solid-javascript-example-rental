@@ -5,7 +5,7 @@ var RangeList = Backbone.Collection.extend({
   }
 
 , stretchRentalPlan: function(range) {
-    this.add({ start: range.end + 1});
+    this.add({ start: range.get("end") + 1});
   }
 
 });
