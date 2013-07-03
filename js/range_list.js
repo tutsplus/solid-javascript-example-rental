@@ -8,4 +8,10 @@ var RangeList = Backbone.Collection.extend({
     this.add({ start: range.get("end") + 1});
   }
 
+, safeRemove: function(index) {
+    if (this.length > 1) {
+      this.remove(index);
+    }
+  }
+
 });
