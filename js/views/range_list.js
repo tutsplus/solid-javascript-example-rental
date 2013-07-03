@@ -1,5 +1,9 @@
 var RangesView = Backbone.View.extend({
-  render: function() {
+  initialize: function() {
+    this.collection.on('change', this.render, this);
+    this.collection.on('add', this.render, this);
+  }
+, render: function() {
     this.$el.html("");
     this.collection.forEach(function(range){
       var range_view = new RangeView({model: range});
