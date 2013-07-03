@@ -35,46 +35,43 @@
     </div>
 
     <script type="text/template" id='range-template'>
-      <li class="import">
-        <p>
-          <label for="fare-from-amount">How many days?</label>
-          <input type="text" value="{{start}}" 
-                 class="import-start" 
-                 disabled="disabled" 
-                 id="fare-from-amount" 
-                 name="fare-from-amount" 
-                 size='2' 
-                 />
+      <p>
+        <label for="fare-from-amount">How many days?</label>
+        <input type="text" value="{{start}}" 
+               class="import-start" 
+               disabled="disabled" 
+               id="fare-from-amount" 
+               name="fare-from-amount" 
+               size='2' 
+               />
 
-          &rarr;
+        &rarr;
 
-          <input type="text" value="{{end}}"
-                 name="fare-to-amount"
-                 id="fare-to-amount-{{cid}}"
-                 size='2'
-                 class="plan-end"
-                 />
+        <input type="text" value="{{end}}"
+               name="fare-to-amount"
+               id="fare-to-amount-{{cid}}"
+               size='2'
+               class="plan-end"
+               />
 
-          <label for="fare-value">Value</label>
-          <input type="text" value="{{value}}"
-                 name="fare-value"
-                 id="fare-value"
-                 size='3'
-                 />
-          &euro;
+        <label for="fare-value">Value</label>
+        <input type="text" value="{{value}}"
+               name="fare-value"
+               id="fare-value"
+               size='3'
+               />
+        &euro;
 
-          /
+        /
 
-          <select>
-            <option>fixed</option>
-            <option>daily</option>
-          </select>
+        <select>
+          <option>fixed</option>
+          <option>daily</option>
+        </select>
 
-          <a href="#" class="button inline remove plan-remove">&#x2718;</a>
+        <a href="#" class="button inline remove plan-remove">&#x2718;</a>
 
-        </p>
-
-      </li>
+      </p>
     </script>
 
     <script type="text/template" id='plan-template'>
