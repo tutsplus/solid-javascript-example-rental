@@ -1,3 +1,3 @@
 var Plan = Backbone.Model.extend({
-  ranges: [ new Range ]
+  ranges: new RangeList([ new Range ]),
 });
