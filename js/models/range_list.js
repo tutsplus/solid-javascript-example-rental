@@ -2,6 +2,7 @@ var RangeList = Backbone.Collection.extend({
   model: Range
 , initialize: function() {
     this.on("change:end",this.stretchRentalPlan,this);
+    this.on("wantsToRemove", this.wantsToRemove);
   }
 
 , stretchRentalPlan: function(range) {
@@ -16,6 +17,10 @@ var RangeList = Backbone.Collection.extend({
       this.remove(range);
       this.at(index - 1).set("end", end, { silent: true });
     }
+  }
+
+, wantsToRemove: function(range) {
+    this.safeRemove(range);
   }
 
 });
