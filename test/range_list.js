@@ -20,7 +20,7 @@ describe("RangeList", function() {
     });
 
     it("always has one item", function() {
-      range_list.safeRemove(0);
+      range_list.safeRemove(range_list.first());
       expect(range_list.length).toEqual(1);
     });
 
@@ -37,8 +37,14 @@ describe("RangeList", function() {
 
     it("adjusts the previous item correctly when removing the last range",
       function() {
-      range_list.safeRemove(1);
+      range_list.safeRemove(range_list.last());
       expect(range_list.first().get("end")).toEqual(9999);
+    });
+
+    it("actually removes the last range",
+      function() {
+      range_list.safeRemove(range_list.last());
+      expect(range_list.length).toEqual(1);
     });
 
   });

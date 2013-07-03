@@ -8,12 +8,12 @@ var RangeList = Backbone.Collection.extend({
     this.add({ start: range.get("end") + 1});
   }
 
-, safeRemove: function(index) {
-    var range_to_remove = this.at(index)
-      , end = range_to_remove.get("end");
+, safeRemove: function(range) {
+    var index = this.indexOf(range)
+      , end   = range.get("end");
 
     if (this.length > 1) {
-      this.remove(index);
+      this.remove(range);
       this.at(index - 1).set("end", end, { silent: true });
     }
   }
