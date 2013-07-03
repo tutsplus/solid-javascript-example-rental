@@ -6,4 +6,5 @@ describe("Range", function() {
   it("has an end", function () {
     expect(new Range().end).toEqual(9999);
   });
+
 });
