@@ -9,8 +9,12 @@ var RangeList = Backbone.Collection.extend({
   }
 
 , safeRemove: function(index) {
+    var range_to_remove = this.at(index)
+      , end = range_to_remove.get("end");
+
     if (this.length > 1) {
       this.remove(index);
+      this.at(index - 1).set("end", end, { silent: true });
     }
   }
 
