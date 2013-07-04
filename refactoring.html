@@ -9,10 +9,13 @@
     <script type='text/javascript' src="/vendor/underscore.js"></script>
     <script type='text/javascript' src="/vendor/backbone.js"></script>
     <script type='text/javascript' src="/js/models/range.js"></script>
+    <script type='text/javascript' src="/js/models/hour_range.js"></script>
     <script type='text/javascript' src="/js/models/range_list.js"></script>
     <script type='text/javascript' src="/js/models/plan.js"></script>
     <script type="text/javascript" src="/js/views/range.js"></script>
     <script type="text/javascript" src="/js/views/range_list.js"></script>
+    <script type="text/javascript" src="/js/views/hour_range_list.js"></script>
+    <script type="text/javascript" src="/js/views/hour_range.js"></script>
     <script type="text/javascript" src="/js/views/plan.js"></script>
     <script type='text/javascript' src="/js/app.js"></script>
   </head>
@@ -72,6 +75,34 @@
         <a href="#" class="button inline remove plan-remove">&#x2718;</a>
 
       </p>
+
+      <p class="settings-24">
+      </p>
+
+      <div class="plan-24"></div>
+
+    </script>
+
+    <script type="text/template" id='hour-range-template'>
+      <input type='text'
+             name='imports[0].children[0].start' 
+             size='2' 
+             value="{{start}}" 
+             class="import-start plan-24-start"
+             />
+      &rarr; 
+      <input type='text' 
+             name='imports[0].children[0].end' 
+             size='2' 
+             value="{{end}}" 
+             class="import-end plan-24-end"
+             /> 
+      =
+      <input type='text' 
+             name='imports[0].children[0].amount' 
+             size='2'
+             /> 
+      &euro;
     </script>
 
     <script type="text/template" id='plan-template'>

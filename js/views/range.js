@@ -2,8 +2,13 @@ var RangeView = Backbone.View.extend({
   tagName: "li"
 , className: "import"
 , render: function() {
-    var template = $("#range-template").html();
-    this.$el.html($.mustache(template,this.model.toJSON()));
+    var template    = $("#range-template").html();
+    var hour_ranges = this.renderHourRanges();
+    var json        = this.model.toJSON();
+
+    this.$el.html($.mustache(template, json));
+    this.$el.find(".plan-24").append(hour_ranges);
+
     return this;
   }
 , events: {
@@ -18,5 +23,11 @@ var RangeView = Backbone.View.extend({
 
 , remove: function() {
     this.model.trigger("wantsToRemove", this.model);
+  }
+
+, renderHourRanges: function() {
+    return new HourRangeListView({
+      collection: this.model.get("hour_ranges") })
+    .render().el;
   }
 });
