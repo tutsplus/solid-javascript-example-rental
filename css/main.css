@@ -1084,7 +1084,7 @@ a.loaded {
     background-image: url("images/sprites.png");
     background-position: -28px -300px; }
 
-#imports ol, .plan ol {
+.plan ol {
     list-style: none; }
 
 #ghostwalk {
