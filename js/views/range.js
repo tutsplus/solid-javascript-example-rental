@@ -27,7 +27,7 @@ var RangeView = Backbone.View.extend({
 
 , renderHourRanges: function() {
     return new HourRangeListView({
-      collection: this.model.get("hour_ranges") })
-    .render().el;
+      collection: this.model.get("hour_ranges")
+    }).render().el;
   }
 });

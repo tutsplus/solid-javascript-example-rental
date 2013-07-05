@@ -1,6 +1,6 @@
 var HourRangeView = Backbone.View.extend({
   tagName: "li"
-, className: "import-24 indented-checkbox"
+, className: "indented-checkbox"
 , render: function() {
     var template = $("#hour-range-template").html();
     this.$el.html($.mustache(template,this.model.toJSON()));
@@ -12,7 +12,6 @@ var HourRangeView = Backbone.View.extend({
   }
 
 , endChanged: function(e) {
-    alert("")
     var value = parseInt($(e.target).val());
     this.model.set("end", value);
   }
