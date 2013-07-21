@@ -76,28 +76,11 @@ $(function() {
   }
   initSelects();
 
-  $("#fare-min-fare-unit").change(function() {
-    initSelects();
-  });
-
   $(".import-end").live("change",function() {
     var params = [this];
     if ($(this).parents("li:first").hasClass("import-24"))
       params.push("24");
     update_or_create_next_import.apply(this,params);
-  });
-
-  $("#save_only").click(function(e) {
-    e.preventDefault();
-    var _this = $(this)
-      , previous_text = _this.text();
-
-      _this.text("Salvando...").prop("disabled",true);
-
-      setTimeout(function() {
-        _this.text(previous_text).prop("disabled",false);
-      },700);
-
   });
 
   $("#imports .remove").live("click",function(e) {
