@@ -8,17 +8,28 @@
     <script type='text/javascript' src="/vendor/mustache.js"></script>
     <script type='text/javascript' src="/vendor/underscore.js"></script>
     <script type='text/javascript' src="/vendor/backbone.js"></script>
+
     <script type='text/javascript' src="/js/models/range.js"></script>
-    <script type='text/javascript' src="/js/models/hour_range.js"></script>
-    <script type='text/javascript' src="/js/models/range_list.js"></script>
-    <script type="text/javascript" src="/js/models/hour_range_list.js"></script>
-    <script type='text/javascript' src="/js/models/plan.js"></script>
+    <script type="text/javascript" src="/js/models/hour_range.js"></script>
+
+    <script type="text/javascript" src="/js/collections/hour_range_list.js"></script>
+    <script type="text/javascript" src="/js/collections/range_list.js"></script>
+
+    <script type="text/javascript" src="/js/models/plan.js"></script>
+
     <script type="text/javascript" src="/js/views/range.js"></script>
     <script type="text/javascript" src="/js/views/range_list.js"></script>
-    <script type="text/javascript" src="/js/views/hour_range_list.js"></script>
-    <script type="text/javascript" src="/js/views/hour_range.js"></script>
     <script type="text/javascript" src="/js/views/plan.js"></script>
-    <script type='text/javascript' src="/js/app.js"></script>
+    <script type="text/javascript" src="/js/views/hour_range.js"></script>
+    <script type="text/javascript" src="/js/views/hour_range_list.js"></script>
+
+    <script type="text/javascript" src="/js/app.js"></script>
+    <script>
+      $(function() {
+        var app = new App();
+        app.init();
+      });
+    </script>
   </head>
   <body>
     <div id="bucket">
@@ -115,10 +126,6 @@
 
       <a href="#" class="button inline remove plan-24-remove">&#x2718;</a>
 
-    </script>
-
-    <script type="text/template" id='plan-template'>
-      <p>Lala</p>
     </script>
   </body>
 </html>

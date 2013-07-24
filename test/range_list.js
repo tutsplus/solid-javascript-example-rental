@@ -1,9 +1,10 @@
 describe("RangeList", function() {
   describe("when with a single item", function() {
     var range_list;
-    var range = new Range;
+    var range;
 
     beforeEach(function() {
+      range = new Range;
       range_list = new RangeList([ range ]);
     });
 
@@ -14,9 +15,7 @@ describe("RangeList", function() {
 
     it("sets the correct start point", function() {
       range.set("end", 2);
-      setTimeout(function() {
-        expect(range_list.last().get("start")).toEqual(3);
-      }, 0);
+      expect(range_list.last().get("start")).toEqual(3);
     });
 
     it("always has one item", function() {
@@ -27,10 +26,10 @@ describe("RangeList", function() {
   });
 
   describe("when with two items", function () {
-    var range_list;
-    var range = new Range;
+    var range_list, range;
 
     beforeEach(function() {
+      range = new Range;
       range_list = new RangeList([ range ]);
       range.set("end",2);
     });

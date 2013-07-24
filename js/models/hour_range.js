@@ -1,7 +1,7 @@
 var HourRange = Range.extend({
-  initialize: function() {
-    this.set("end", HourRange.MAX, { silent: true });
-  }
-}, {
-  MAX: 24
+  defaults: {
+    start: 1,
+    end: 24
+  },
+  initialize: function() {}
 });

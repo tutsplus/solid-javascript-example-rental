@@ -1,27 +1,29 @@
 var RangeView = Backbone.View.extend({
-  tagName: "li"
-, className: "import"
-, render: function() {
-    var template    = $("#range-template").html();
-    var hour_ranges = this.renderHourRanges();
-    var json        = this.transformModel();
+  events: {
+    "change .plan-end": "endChanged"
+  , "click .plan-remove": "wantsToRemove"
+  }
 
-    this.$el.html($.mustache(template, json));
+, render: function() {
+    var hour_ranges = this.renderHourRanges();
+
+    this.$el.html(this.fetchTemplate());
     this.$el.find(".plan-24").append(hour_ranges);
 
     return this;
   }
-, events: {
-    "change .plan-end"  : "endChanged"
-  , "click .plan-remove" : "remove"
+, fetchTemplate: function() {
+    var template = $("#range-template").html();
+    var json = this.model.toJSON();
+    return $.mustache(template, json);
   }
 
 , endChanged: function(e) {
-    var value = parseInt($(e.target).val());
-    this.model.set("end", value);
+    var number = parseInt($(e.target).val());
+    this.model.set("end", number);
   }
 
-, remove: function() {
+, wantsToRemove: function() {
     this.model.trigger("wantsToRemove", this.model);
   }
 
@@ -29,18 +31,5 @@ var RangeView = Backbone.View.extend({
     return new HourRangeListView({
       collection: this.model.get("hour_ranges")
     }).render().el;
-  }
-
-, transformModel: function() {
-    var duplicateModel = _.clone(this.model);
-
-    if(duplicateModel.get("end") == Range.MAX) {
-      duplicateModel.set("end", "--", { silent: true });
-    }
-
-    var json = duplicateModel.toJSON();
-    delete duplicateModel;
-
-    return json;
   }
 });

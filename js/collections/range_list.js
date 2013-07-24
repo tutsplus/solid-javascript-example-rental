@@ -1,7 +1,7 @@
 var RangeList = Backbone.Collection.extend({
   model: Range
 , initialize: function() {
-    this.on("change:end",this.stretchRentalPlan,this);
+    this.on("change:end", this.stretchRentalPlan, this);
     this.on("wantsToRemove", this.wantsToRemove);
   }
 
@@ -10,17 +10,16 @@ var RangeList = Backbone.Collection.extend({
   }
 
 , safeRemove: function(range) {
-    var index = this.indexOf(range)
-      , end   = range.get("end");
+    var end = range.get("end");
+    var index = this.indexOf(range);
 
-    if (this.length > 1) {
+    if(this.length > 1) {
       this.remove(range);
       this.at(index - 1).set("end", end, { silent: true });
     }
-  }
 
+  }
 , wantsToRemove: function(range) {
     this.safeRemove(range);
   }
-
 });

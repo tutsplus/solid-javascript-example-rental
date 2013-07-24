@@ -4,6 +4,7 @@ var RangesView = Backbone.View.extend({
     this.collection.on('change', this.render, this);
     this.collection.on('add'   , this.render, this);
     this.collection.on('remove', this.render, this);
+    this.collection.on('wantsToRemove', this.render, this);
   }
 , render: function() {
     this.$el.html("");
